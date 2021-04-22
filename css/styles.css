@@ -18,6 +18,7 @@
   --background-btn-color: #f5f4fa;
   --background-header-footer-color: #2f303a;
   --bg-hero-overlay: rgba(47, 48, 58, 0.4);
+  --fill-icon: #afb1b8;
 
   --main-font: "Roboto", sans-serif;
   --logo-font: "Raleway", sans-serif;
@@ -135,13 +136,20 @@ img {
 .h-contact .item + .item {
   margin-left: 50px;
 }
-
+.h-contact .item {
+  display: flex;
+  align-items: center;
+}
+.icon-h-contact {
+  margin-right: 10px;
+}
 .h-contact .link {
   color: var(--primary-text-color);
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
 }
+
 .h-contact .link:hover,
 .h-contact .link:focus {
   color: var(--accent-color);
@@ -263,6 +271,20 @@ img {
   margin-left: 30px;
 }
 
+.features-bg {
+  height: 120px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-btn-color);
+  border-radius: 4px;
+}
+.features-bg .icon {
+  width: 70px;
+  height: 70px;
+}
+
 .features .title {
   margin-bottom: 10px;
   color: var(--title-text-color);
@@ -323,7 +345,35 @@ img {
   font-size: 16px;
   line-height: 1.2;
 }
+.social-icons {
+  display: inline-flex;
+}
+.social-icons-svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--fill-icon);
+}
 
+/* Постоянные клиенты */
+.clients-item {
+  display: flex;
+  flex-basis: calc((100% - 6 * 30px) / 6);
+  margin-left: 30px;
+  margin-top: 30px;
+}
+.clients-link {
+  display: flex;
+  width: 170px;
+  height: 90px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--fill-icon);
+  border-radius: 4px;
+}
+
+.clients-item .icon {
+  fill: var(--fill-icon);
+}
 /* FOOTER */
 .footer-page {
   padding-top: 60px;
