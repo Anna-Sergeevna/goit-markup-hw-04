@@ -5,7 +5,7 @@
 /* ссылки футер rgba(255, 255, 255, 0.6) */
 /* основной фон макета #E5E5E5 */
 
-/* CSS-переменные */
+/* #region CSS-переменные */
 :root {
   --primary-text-color: #757575;
   --title-text-color: #212121;
@@ -19,11 +19,15 @@
   --background-header-footer-color: #2f303a;
   --bg-hero-overlay: rgba(47, 48, 58, 0.4);
   --fill-icon: #afb1b8;
+  --projects-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
+    0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 
   --main-font: "Roboto", sans-serif;
   --logo-font: "Raleway", sans-serif;
-}
 
+  --list-gap: 30px;
+}
+/* #endregion CSS-переменные */
 body {
   background-color: var(--background-page-color);
   color: var(--primary-text-color);
@@ -31,7 +35,7 @@ body {
   letter-spacing: 0.03em;
 }
 
-/* Утилиты */
+/* #region Утилиты */
 p,
 ul,
 h1,
@@ -60,16 +64,16 @@ img {
   padding: 0;
   margin: 0;
 }
+/* #endregion Утилиты */
 
-/* HEADER */
-/* Шапка сайта */
+/* #region Шапка сайта - HEADER */
 
 .header-page {
   background-color: var(--primary-white-color);
   border-bottom: 1px solid var(--header-border-line);
 }
 
-/* logo */
+/* #region логотип - logo */
 .logo {
   color: var(--accent-color);
   font-family: var(--logo-font);
@@ -95,8 +99,9 @@ img {
   display: flex;
   align-items: center;
 }
+/* #endregion Логотип - logo */
 
-/* nav */
+/* #region Навигация - nav */
 .nav {
   display: flex;
   align-items: center;
@@ -126,37 +131,39 @@ img {
 .nav .link:focus {
   color: var(--accent-color);
 }
+/* #endregion Навигация - nav */
 
-/* Контакты */
+/* #region Контакты - h-contact */
 .h-contact.list {
   display: flex;
   margin-left: auto;
 }
-
 .h-contact .item + .item {
   margin-left: 50px;
 }
-.h-contact .item {
+.h-contact.link {
   display: flex;
   align-items: center;
-}
-.icon-h-contact {
-  margin-right: 10px;
-}
-.h-contact .link {
   color: var(--primary-text-color);
   font-weight: 500;
   line-height: 1.14;
   letter-spacing: 0.02em;
 }
-
-.h-contact .link:hover,
-.h-contact .link:focus {
+.h-contact.link:hover,
+.h-contact.link:focus {
   color: var(--accent-color);
+  stroke: var(--accent-color);
 }
+.h-contact-icon {
+  margin-right: 10px;
+  fill: currentColor;
+}
+/* #endregion Контакты - h-contact */
 
-/* MAIN */
-/* Герой */
+/* #endregion Шапка сайта - HEADER */
+
+/* #region MAIN 1 */
+/* #region Герой - hero */
 .hero {
   max-width: 1600px;
   max-height: 600px;
@@ -177,7 +184,7 @@ img {
   background-position: center;
 }
 .hero-title {
-  margin-bottom: 30px;
+  margin-bottom: var(--list-gap);
   color: var(--primary-white-color);
   font-weight: 900;
   font-size: 44px;
@@ -186,7 +193,7 @@ img {
   text-transform: uppercase;
 }
 
-/* button общая*/
+/* #region button общая */
 .button {
   border-radius: 4px;
   border-color: transparent;
@@ -197,7 +204,7 @@ img {
   text-align: center;
   cursor: pointer;
 }
-/* button Герой*/
+/* button Герой */
 .button.primary {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   min-width: 200px;
@@ -210,8 +217,7 @@ img {
   letter-spacing: 0.06em;
 }
 
-/* button Наши услуги*/
-
+/* button Наши услуги */
 .button.secondary {
   min-width: 73px;
   padding: 6px 22px;
@@ -228,6 +234,9 @@ img {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
+/* #endregion button общая */
+
+/* #endregion Герой - hero */
 
 /* section */
 /* Заголовки h2 */
@@ -251,8 +260,7 @@ img {
   overflow: hidden;
 }
 
-/* Приемущества */
-/* features */
+/* #region Приемущества - features */
 
 .section {
   padding-top: 94px;
@@ -268,12 +276,12 @@ img {
   width: 270px;
 }
 .features.list .item + .item {
-  margin-left: 30px;
+  margin-left: var(--list-gap);
 }
 
 .features-bg {
   height: 120px;
-  margin-bottom: 30px;
+  margin-bottom: var(--list-gap);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -297,34 +305,35 @@ img {
   font-size: 14px;
   line-height: 1.7;
 }
+/* #endregion Приемущества - features */
 
-/* Чем мы занимаемся*/
+/* #region Чем мы занимаемся - specification */
 .section.specification {
   padding-top: 0;
 }
 .list.card-set {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -30px;
-  margin-top: -30px;
+  margin-left: calc(-1 * var(--list-gap));
+  margin-top: calc(-1 * var(--list-gap));
 }
 
 .specification-item {
-  flex-basis: calc((100% - 3 * 30px) / 3);
-  margin-left: 30px;
-  margin-top: 30px;
+  flex-basis: calc((100% - 3 * var(--list-gap)) / 3);
+  margin-left: var(--list-gap);
+  margin-top: var(--list-gap);
 }
+/* #endregion Чем мы занимаемся - specification */
 
-/* Наша команда */
-/* team */
+/* #region Наша команда - team */
 .section.team {
   background-color: var(--background-btn-color);
 }
 
 .team-item {
-  flex-basis: calc((100% - 4 * 30px) / 4);
-  margin-left: 30px;
-  margin-top: 30px;
+  flex-basis: calc((100% - 4 * var(--list-gap)) / 4);
+  margin-left: var(--list-gap);
+  margin-top: var(--list-gap);
   background-color: var(--primary-white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -332,8 +341,8 @@ img {
   text-align: center;
 }
 .team-content {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: var(--list-gap);
+  padding-bottom: var(--list-gap);
 }
 .team .title {
   margin-bottom: 10px;
@@ -342,24 +351,43 @@ img {
   line-height: 1.2;
 }
 .team .text {
+  margin-bottom: 16px;
   font-size: 16px;
   line-height: 1.2;
 }
-.social-icons {
+.socia-icon {
   display: inline-flex;
 }
-.social-icons-svg {
-  width: 20px;
-  height: 20px;
+.socia-icon-item:not(:last-child) {
+  margin-right: 10px;
+}
+.socia-icon-link {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   fill: var(--fill-icon);
 }
+.socia-icon-link:hover,
+.socia-icon-link:focus {
+  fill: var(--primary-white-color);
+  background-color: var(--accent-color);
+}
+.socia-icon-svg {
+  width: 20px;
+  height: 20px;
+}
+/* #endregion Наша команда - team */
 
-/* Постоянные клиенты */
-.clients-item {
+/* #region Постоянные клиенты - clients */
+.clients.list {
   display: flex;
-  flex-basis: calc((100% - 6 * 30px) / 6);
-  margin-left: 30px;
-  margin-top: 30px;
+  flex-wrap: wrap;
+}
+.clients-item:not(:last-child) {
+  margin-right: var(--list-gap);
 }
 .clients-link {
   display: flex;
@@ -367,31 +395,38 @@ img {
   height: 90px;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--fill-icon);
   border-radius: 4px;
-}
-
-.clients-item .icon {
+  border: 1px solid var(--fill-icon);
   fill: var(--fill-icon);
 }
-/* FOOTER */
+.clients-link:hover,
+.clients-link:focus {
+  fill: var(--accent-color);
+  border-color: var(--accent-color);
+}
+/* #endregion Постоянные клиенты - clients */
+
+/* #endregion MAIN 1 */
+
+/*  #region Подвал - FOOTER */
 .footer-page {
   padding-top: 60px;
   padding-bottom: 60px;
   background-color: var(--background-header-footer-color);
 }
-
 .footer-page .container {
   display: flex;
   align-items: baseline;
 }
-
-/* Лого */
+.f-contact {
+  margin-right: 70px;
+}
+/* Лого - logo */
 .footer-page .accent {
   color: var(--primary-white-color);
 }
 
-/* Контакты */
+/* #region Контакты - footer-contact */
 .footer-contact .address,
 .footer-contact .link {
   display: block;
@@ -417,11 +452,46 @@ img {
 .footer-contact .link:focus {
   color: var(--accent-color);
 }
+/* #endregion Контакты - footer-contact */
 
-/* МАКЕТ 2 */
-/* Main */
+/* #region Присоеденяйтесь - f-socia */
+.f-socia-title {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--primary-white-color);
+}
+.f-socia-list {
+  display: inline-flex;
+}
+.f-socia-item:not(:last-child) {
+  margin-right: 10px;
+}
+.f-socia-link {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  fill: var(--primary-white-color);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.f-socia-link:hover,
+.f-socia-link:focus {
+  background-color: var(--accent-color);
+}
+.f-socia-icon {
+  width: 20px;
+  height: 20px;
+}
+/* #endregion Присоеденяйтесь - f-socia */
+/*  #endregion Подвал - FOOTER */
 
-/* Наши услуги */
+/* #region MAIN 2 */
+
+/* #region Наши услуги */
 .services.list {
   margin-bottom: 50px;
   display: flex;
@@ -431,16 +501,20 @@ img {
 .services.list .item + .item {
   margin-left: 8px;
 }
+/* #endregion Наши услуги */
 
-/* Наши проекты */
+/* #region Наши проекты - projects */
 .projects-item {
-  flex-basis: calc((100% - 3 * 30px) / 3);
-  margin-left: 30px;
-  margin-top: 30px;
+  flex-basis: calc((100% - 3 * var(--list-gap)) / 3);
+  margin-left: var(--list-gap);
+  margin-top: var(--list-gap);
   border: 1px solid #eeeeee;
   background-color: var(--primary-white-color);
 }
-
+.projects-item:hover,
+.projects-item:focus {
+  box-shadow: var(--projects-box-shadow);
+}
 .projects-content {
   padding: 20px 24px;
 }
@@ -455,3 +529,5 @@ img {
   font-size: 16px;
   line-height: 1.9;
 }
+/* #endregion Наши проекты - projects */
+/* #endregion MAIN 2 */
